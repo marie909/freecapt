@@ -1,7 +1,7 @@
 ## Interactive-Avatar
 
 ## Migration to LiveAvatar
-In the near future, we will be deprecateding Interactive Avatar. To migrate, please check out the documentation on [LiveAvatar](https://docs.liveavatar.com/docs/interactive-avatar-migration-guide#/).
+In the near future, we will be deprecating Interactive Avatar. To migrate, please check out the documentation on [LiveAvatar](https://docs.liveavatar.com/docs/interactive-avatar-migration-guide#/).
 
 
 ## Changes 2.1.0
