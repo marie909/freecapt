@@ -1,5 +1,9 @@
 ## Interactive-Avatar
 
+## Migration to LiveAvatar
+In the near future, we will be deprecateding Interactive Avatar. To migrate, please check out the documentation on [LiveAvatar](https://docs.liveavatar.com/docs/interactive-avatar-migration-guide#/).
+
+
 ## Changes 2.1.0
 1. Add push-to-talk support via two new function `pushToTalkStart` and `pushToTalkStop`.  
    Push-to-talk requires liveKit voice transport: `voiceChatTransport: VoiceChatTransport.LIVEKIT`, and requires 
