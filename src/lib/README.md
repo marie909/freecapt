@@ -80,9 +80,9 @@ import { resolveFromRoot } from '@/lib';
 import { readFile } from 'fs/promises';
 
 export async function loadConfig() {
-  const configPath = resolveFromRoot('.env.local');
+  const configPath = resolveFromRoot('config', 'app.json');
   const config = await readFile(configPath, 'utf-8');
-  return parseEnvFile(config);
+  return JSON.parse(config);
 }
 ```
 
