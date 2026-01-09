@@ -19,9 +19,12 @@
    cp .env.example .env.local
    ```
    
-   Edit `.env.local` and add your HeyGen API key:
+   Edit `.env.local` and add your configuration:
    ```env
    HEYGEN_API_KEY=your_api_key_here
+   NEXT_PUBLIC_AVATAR_ID=ba7401f5391344f3a1769ad024c7205d
+   NEXT_PUBLIC_VOICE_ID=84d29094d8c8472885624bd30c06459e
+   NEXT_PUBLIC_KNOWLEDGE_BASE_ID=3318323f73b74f819d4f6fcfab0c49db
    ```
 
 3. **Run the development server**:
@@ -31,10 +34,16 @@
 
 4. **Open your browser**: [http://localhost:3000](http://localhost:3000)
 
-## Environment Variables Required
+## Environment Variables
 
-- **`HEYGEN_API_KEY`** (Required) - Your HeyGen API key from [app.heygen.com/settings](https://app.heygen.com/settings?nav=API)
-- **`HEYGEN_BASE_URL`** (Optional) - Base API URL (defaults to `https://api.heygen.com`)
+### Required
+- **`HEYGEN_API_KEY`** - Your HeyGen API key from [app.heygen.com/settings](https://app.heygen.com/settings?nav=API)
+
+### Optional (Pre-configured)
+- **`NEXT_PUBLIC_AVATAR_ID`** - Avatar ID (default: `ba7401f5391344f3a1769ad024c7205d`)
+- **`NEXT_PUBLIC_VOICE_ID`** - Voice ID (default: `84d29094d8c8472885624bd30c06459e`)
+- **`NEXT_PUBLIC_KNOWLEDGE_BASE_ID`** - Knowledge Base ID (default: `3318323f73b74f819d4f6fcfab0c49db`)
+- **`HEYGEN_BASE_URL`** - Base API URL (defaults to `https://api.heygen.com`)
 
 See [ENVIRONMENT_VARIABLES.md](./ENVIRONMENT_VARIABLES.md) for detailed documentation.
 

@@ -41,6 +41,7 @@
   "homepage": "https://github.com/HeyGen-Official/StreamingAvatarSDK",
   "license": "MIT",
   "dependencies": {
+    "@heygen/streaming-avatar": "^2.1.0",
     "livekit-client": "2.11.3",
     "next": "^16.1.1",
     "protobufjs": "7.5.0",

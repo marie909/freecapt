@@ -63,10 +63,13 @@ This application requires the following environment variables:
    cp .env.example .env.local
    ```
 
-   Edit `.env.local` and add your HeyGen API key:
+   Edit `.env.local` and add your HeyGen API key and avatar configuration:
 
    ```env
    HEYGEN_API_KEY=your_actual_api_key_here
+   NEXT_PUBLIC_AVATAR_ID=ba7401f5391344f3a1769ad024c7205d
+   NEXT_PUBLIC_VOICE_ID=84d29094d8c8472885624bd30c06459e
+   NEXT_PUBLIC_KNOWLEDGE_BASE_ID=3318323f73b74f819d4f6fcfab0c49db
    ```
 
 4. **Run the development server**
@@ -81,9 +84,14 @@ This application requires the following environment variables:
 
 ## How to Use
 
-1. **Enter Avatar Details**
-   - Avatar ID: Find available avatars at [labs.heygen.com/interactive-avatar](https://labs.heygen.com/interactive-avatar)
-   - Voice ID: Choose from available voices in your HeyGen account
+1. **Avatar Configuration**
+   
+   This application is pre-configured with the following defaults (set via environment variables):
+   - **Avatar ID**: `ba7401f5391344f3a1769ad024c7205d`
+   - **Voice ID**: `84d29094d8c8472885624bd30c06459e`
+   - **Knowledge Base ID**: `3318323f73b74f819d4f6fcfab0c49db`
+   
+   These can be changed in the UI or by updating the environment variables in `.env.local`.
 
 2. **Start a Session**
    - Click "Start Session" to initialize the avatar
@@ -204,6 +212,72 @@ Available quality levels:
 - **SDK**: HeyGen Streaming Avatar SDK
 - **WebRTC**: LiveKit Client
 - **Real-time**: WebSocket & LiveKit
+
+## Deployment to Vercel
+
+This Next.js application is optimized for deployment to Vercel:
+
+### Quick Deploy
+
+1. **Push to GitHub** (if not already done)
+   ```bash
+   git push origin main
+   ```
+
+2. **Import to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "Import Project"
+   - Select your GitHub repository
+   - Vercel will auto-detect Next.js settings
+
+3. **Add Environment Variables**
+   
+   In your Vercel project settings, add these environment variables:
+   
+   **Required:**
+   - `HEYGEN_API_KEY` = `your_actual_api_key`
+   
+   **Optional (Pre-configured):**
+   - `NEXT_PUBLIC_AVATAR_ID` = `ba7401f5391344f3a1769ad024c7205d`
+   - `NEXT_PUBLIC_VOICE_ID` = `84d29094d8c8472885624bd30c06459e`
+   - `NEXT_PUBLIC_KNOWLEDGE_BASE_ID` = `3318323f73b74f819d4f6fcfab0c49db`
+
+4. **Deploy**
+   - Click "Deploy"
+   - Vercel will build and deploy your application
+   - Your app will be live at `your-project.vercel.app`
+
+### Vercel CLI Deploy
+
+Alternatively, use the Vercel CLI:
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Add environment variables
+vercel env add HEYGEN_API_KEY
+vercel env add NEXT_PUBLIC_AVATAR_ID
+vercel env add NEXT_PUBLIC_VOICE_ID
+vercel env add NEXT_PUBLIC_KNOWLEDGE_BASE_ID
+
+# Deploy to production
+vercel --prod
+```
+
+### Environment Variables in Vercel
+
+Go to your project settings → Environment Variables and add:
+
+| Variable Name | Value | Environment |
+|---------------|-------|-------------|
+| `HEYGEN_API_KEY` | Your actual API key | Production, Preview, Development |
+| `NEXT_PUBLIC_AVATAR_ID` | `ba7401f5391344f3a1769ad024c7205d` | Production, Preview, Development |
+| `NEXT_PUBLIC_VOICE_ID` | `84d29094d8c8472885624bd30c06459e` | Production, Preview, Development |
+| `NEXT_PUBLIC_KNOWLEDGE_BASE_ID` | `3318323f73b74f819d4f6fcfab0c49db` | Production, Preview, Development |
 
 ## Documentation
 
