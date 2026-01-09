@@ -32,6 +32,62 @@ HEYGEN_API_KEY=sk_1234567890abcdef1234567890abcdef
 
 ## Optional Environment Variables
 
+### NEXT_PUBLIC_AVATAR_ID
+
+**Description**: Default Avatar ID to use when starting a session.
+
+**Required**: No (can be entered in the UI)
+
+**Default**: `ba7401f5391344f3a1769ad024c7205d` (pre-configured)
+
+**Where to get it**: 
+1. Visit [labs.heygen.com/interactive-avatar](https://labs.heygen.com/interactive-avatar)
+2. Click 'Select Avatar' to see available avatars and their IDs
+3. Copy the Avatar ID you want to use
+
+**Example**:
+```env
+NEXT_PUBLIC_AVATAR_ID=ba7401f5391344f3a1769ad024c7205d
+```
+
+---
+
+### NEXT_PUBLIC_VOICE_ID
+
+**Description**: Default Voice ID to use for the avatar's speech.
+
+**Required**: No (can be entered in the UI)
+
+**Default**: `84d29094d8c8472885624bd30c06459e` (pre-configured)
+
+**Where to get it**: Choose from available voices in your HeyGen account
+
+**Example**:
+```env
+NEXT_PUBLIC_VOICE_ID=84d29094d8c8472885624bd30c06459e
+```
+
+---
+
+### NEXT_PUBLIC_KNOWLEDGE_BASE_ID
+
+**Description**: Knowledge Base ID for AI-powered responses.
+
+**Required**: No
+
+**Default**: `3318323f73b74f819d4f6fcfab0c49db` (pre-configured)
+
+**Where to get it**: Create or find knowledge bases at [labs.heygen.com](https://labs.heygen.com)
+
+**When to use**: Enable intelligent responses based on your custom knowledge base
+
+**Example**:
+```env
+NEXT_PUBLIC_KNOWLEDGE_BASE_ID=3318323f73b74f819d4f6fcfab0c49db
+```
+
+---
+
 ### HEYGEN_BASE_URL
 
 **Description**: Base URL for the HeyGen API endpoints.
@@ -64,6 +120,9 @@ HEYGEN_BASE_URL=https://api-staging.heygen.com
 2. Edit `.env.local` and add your values:
    ```env
    HEYGEN_API_KEY=your_actual_api_key_here
+   NEXT_PUBLIC_AVATAR_ID=ba7401f5391344f3a1769ad024c7205d
+   NEXT_PUBLIC_VOICE_ID=84d29094d8c8472885624bd30c06459e
+   NEXT_PUBLIC_KNOWLEDGE_BASE_ID=3318323f73b74f819d4f6fcfab0c49db
    ```
 
 3. Restart your development server:

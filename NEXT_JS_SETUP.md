@@ -55,9 +55,12 @@ npm install
 cp .env.example .env.local
 ```
 
-Edit `.env.local` and add your API key:
+Edit `.env.local` and add your API key and configuration:
 ```env
 HEYGEN_API_KEY=your_actual_api_key_here
+NEXT_PUBLIC_AVATAR_ID=ba7401f5391344f3a1769ad024c7205d
+NEXT_PUBLIC_VOICE_ID=84d29094d8c8472885624bd30c06459e
+NEXT_PUBLIC_KNOWLEDGE_BASE_ID=3318323f73b74f819d4f6fcfab0c49db
 ```
 
 ### 3. Run Development Server
