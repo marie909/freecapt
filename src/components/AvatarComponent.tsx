@@ -6,7 +6,7 @@ import StreamingAvatar, {
   StreamingEvents,
   TaskType,
   VoiceChatTransport,
-} from '@/lib/StreamingAvatar';
+} from '@heygen/streaming-avatar';
 
 export default function AvatarComponent() {
   const [isLoadingSession, setIsLoadingSession] = useState(false);
@@ -15,8 +15,8 @@ export default function AvatarComponent() {
   const [text, setText] = useState('');
   const [chatMode, setChatMode] = useState('text');
   const [isUserTalking, setIsUserTalking] = useState(false);
-  const [avatarId, setAvatarId] = useState('');
-  const [voiceId, setVoiceId] = useState('');
+  const [avatarId, setAvatarId] = useState('ba7401f5391344f3a1769ad024c7205d');
+  const [voiceId, setVoiceId] = useState('84d29094d8c8472885624bd30c06459e');
   
   const mediaStream = useRef<HTMLVideoElement>(null);
   const avatar = useRef<StreamingAvatar | null>(null);
@@ -76,6 +76,7 @@ export default function AvatarComponent() {
           voiceId: voiceId || 'default',
         },
         language: 'en',
+        knowledgeId: '3318323f73b74f819d4f6fcfab0c49db',
         voiceChatTransport: VoiceChatTransport.WEBSOCKET,
       });
 
