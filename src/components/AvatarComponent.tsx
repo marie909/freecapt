@@ -76,7 +76,7 @@ export default function AvatarComponent() {
           voiceId: voiceId || 'default',
         },
         language: 'en',
-        knowledgeId: process.env.NEXT_PUBLIC_KNOWLEDGE_BASE_ID || undefined,
+        knowledgeId: process.env.NEXT_PUBLIC_KNOWLEDGE_BASE_ID,
         voiceChatTransport: VoiceChatTransport.WEBSOCKET,
       });
 
