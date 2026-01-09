@@ -15,8 +15,8 @@ export default function AvatarComponent() {
   const [text, setText] = useState('');
   const [chatMode, setChatMode] = useState('text');
   const [isUserTalking, setIsUserTalking] = useState(false);
-  const [avatarId, setAvatarId] = useState('ba7401f5391344f3a1769ad024c7205d');
-  const [voiceId, setVoiceId] = useState('84d29094d8c8472885624bd30c06459e');
+  const [avatarId, setAvatarId] = useState(process.env.NEXT_PUBLIC_AVATAR_ID || '');
+  const [voiceId, setVoiceId] = useState(process.env.NEXT_PUBLIC_VOICE_ID || '');
   
   const mediaStream = useRef<HTMLVideoElement>(null);
   const avatar = useRef<StreamingAvatar | null>(null);
@@ -76,7 +76,7 @@ export default function AvatarComponent() {
           voiceId: voiceId || 'default',
         },
         language: 'en',
-        knowledgeId: '3318323f73b74f819d4f6fcfab0c49db',
+        knowledgeId: process.env.NEXT_PUBLIC_KNOWLEDGE_BASE_ID || undefined,
         voiceChatTransport: VoiceChatTransport.WEBSOCKET,
       });
 
