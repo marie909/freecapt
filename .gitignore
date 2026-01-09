@@ -1,4 +1,10 @@
 node_modules/
 lib/
 .idea
+.next/
+.env
+.env*.local
+out/
+build/
+dist/
 

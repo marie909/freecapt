@@ -1,4 +1,75 @@
-## Interactive-Avatar
+# HeyGen Streaming Avatar - Next.js Application
+
+> **🎉 This repository has been converted to a Next.js application!**
+>
+> For complete setup instructions and environment variable documentation, see:
+> - **[NEXT_JS_SETUP.md](./NEXT_JS_SETUP.md)** - Quick start guide
+> - **[README_NEXTJS.md](./README_NEXTJS.md)** - Full application documentation  
+> - **[ENVIRONMENT_VARIABLES.md](./ENVIRONMENT_VARIABLES.md)** - Environment variables guide
+
+## Quick Start
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Set up environment variables**:
+   ```bash
+   cp .env.example .env.local
+   ```
+   
+   Edit `.env.local` and add your HeyGen API key:
+   ```env
+   HEYGEN_API_KEY=your_api_key_here
+   ```
+
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**: [http://localhost:3000](http://localhost:3000)
+
+## Environment Variables Required
+
+- **`HEYGEN_API_KEY`** (Required) - Your HeyGen API key from [app.heygen.com/settings](https://app.heygen.com/settings?nav=API)
+- **`HEYGEN_BASE_URL`** (Optional) - Base API URL (defaults to `https://api.heygen.com`)
+
+See [ENVIRONMENT_VARIABLES.md](./ENVIRONMENT_VARIABLES.md) for detailed documentation.
+
+## Features
+
+- 🎥 Real-time interactive avatar video streaming
+- 💬 Text-based chat with avatars
+- 🎤 Voice chat support (WebSocket & LiveKit)
+- 🔄 Session management and quality monitoring
+- 🎨 Modern UI with Tailwind CSS
+- 📱 Responsive design
+- 🔒 Secure server-side token generation
+
+## Technology Stack
+
+- **Next.js 15** - React framework with App Router
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **HeyGen SDK** - Avatar streaming
+- **LiveKit** - WebRTC and voice chat
+
+## Documentation
+
+- [NEXT_JS_SETUP.md](./NEXT_JS_SETUP.md) - What changed and how to get started
+- [README_NEXTJS.md](./README_NEXTJS.md) - Complete feature documentation
+- [ENVIRONMENT_VARIABLES.md](./ENVIRONMENT_VARIABLES.md) - Environment configuration guide
+
+---
+
+## Original SDK Documentation (Legacy)
+
+The content below is from the original SDK library documentation and is kept for reference.
+
+
 
 ## Migration to LiveAvatar
 In the near future, we will be deprecating Interactive Avatar. To migrate, please check out the documentation on [LiveAvatar](https://docs.liveavatar.com/docs/interactive-avatar-migration-guide#/).
