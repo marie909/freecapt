@@ -185,7 +185,7 @@ export default function AvatarComponent() {
               <track kind="captions" />
             </video>
             {/* Overlay to hide watermark in bottom-right corner */}
-            <div className="absolute bottom-0 right-0 w-64 h-32 bg-black pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-80 h-40 bg-black pointer-events-none" />
             {isUserTalking && (
               <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded z-10">
                 Speaking...
