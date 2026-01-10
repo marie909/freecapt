@@ -158,7 +158,7 @@ export default function AvatarComponent() {
           <img
             src="https://i.postimg.cc/dtzVr981/IMG-6934.jpg"
             alt="Start Session"
-            onClick={!isLoadingSession ? startSession : undefined}
+            onClick={startSession}
             className={`w-[800px] h-[800px] object-cover cursor-pointer ${isLoadingSession ? 'opacity-50 cursor-not-allowed' : ''}`}
           />
         ) : (
