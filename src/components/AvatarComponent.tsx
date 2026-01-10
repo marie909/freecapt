@@ -15,6 +15,7 @@ export default function AvatarComponent() {
   const [text, setText] = useState('');
   const [chatMode, setChatMode] = useState('text');
   const [isUserTalking, setIsUserTalking] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const avatarId = process.env.NEXT_PUBLIC_AVATAR_ID || 'ba7401f5391344f3a1769ad024c7205d';
   const voiceId = process.env.NEXT_PUBLIC_VOICE_ID || '84d29094d8c8472885624bd30c06459e';
   
@@ -36,8 +37,11 @@ export default function AvatarComponent() {
 
   async function startSession() {
     setIsLoadingSession(true);
+    setError(null);
     try {
+      console.log('Starting session...');
       const token = await fetchAccessToken();
+      console.log('Token received');
       
       avatar.current = new StreamingAvatar({ token });
       
@@ -69,6 +73,7 @@ export default function AvatarComponent() {
         setIsUserTalking(false);
       });
 
+      console.log('Creating avatar session...');
       const sessionInfo = await avatar.current.createStartAvatar({
         quality: AvatarQuality.Low,
         avatarName: avatarId || 'default',
@@ -80,9 +85,12 @@ export default function AvatarComponent() {
         voiceChatTransport: VoiceChatTransport.WEBSOCKET,
       });
 
-      console.log('Session started:', sessionInfo);
+      console.log('Session started successfully:', sessionInfo);
     } catch (error) {
       console.error('Error starting session:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Failed to start session. Please check your API credentials in .env file.';
+      setError(errorMessage);
+      alert(`Failed to start session: ${errorMessage}\n\nPlease ensure you have created a .env file with your HEYGEN_API_KEY.`);
     } finally {
       setIsLoadingSession(false);
     }
@@ -155,12 +163,21 @@ export default function AvatarComponent() {
     <div className="w-full flex flex-col gap-4">
       <div className="flex gap-2 justify-center">
         {!stream ? (
-          <img
-            src="https://i.postimg.cc/dtzVr981/IMG-6934.jpg"
-            alt="Start Session"
-            onClick={startSession}
-            className={`w-[800px] h-[800px] object-cover cursor-pointer ${isLoadingSession ? 'opacity-50 cursor-not-allowed' : ''}`}
-          />
+          <div className="relative">
+            <img
+              src="https://i.postimg.cc/dtzVr981/IMG-6934.jpg"
+              alt="Start Session"
+              onClick={startSession}
+              className={`w-[800px] h-[800px] object-cover cursor-pointer ${isLoadingSession ? 'opacity-50 cursor-not-allowed' : ''}`}
+            />
+            {isLoadingSession && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <div className="text-white text-2xl font-bold">
+                  Starting Session...
+                </div>
+              </div>
+            )}
+          </div>
         ) : (
           <button
             onClick={endSession}
@@ -170,6 +187,13 @@ export default function AvatarComponent() {
           </button>
         )}
       </div>
+
+      {error && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <strong className="font-bold">Error: </strong>
+          <span className="block sm:inline">{error}</span>
+        </div>
+      )}
 
       {stream && (
         <div className="flex flex-col gap-4">
