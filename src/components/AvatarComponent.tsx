@@ -27,7 +27,18 @@ export default function AvatarComponent() {
       const response = await fetch('/api/token', {
         method: 'POST',
       });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `API request failed with status ${response.status}`);
+      }
+      
       const data = await response.json();
+      
+      if (!data || !data.data || !data.data.token) {
+        throw new Error('Invalid API response: missing token data');
+      }
+      
       return data.data.token;
     } catch (error) {
       console.error('Error fetching access token:', error);
