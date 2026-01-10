@@ -15,8 +15,8 @@ export default function AvatarComponent() {
   const [text, setText] = useState('');
   const [chatMode, setChatMode] = useState('text');
   const [isUserTalking, setIsUserTalking] = useState(false);
-  const [avatarId, setAvatarId] = useState(process.env.NEXT_PUBLIC_AVATAR_ID || '');
-  const [voiceId, setVoiceId] = useState(process.env.NEXT_PUBLIC_VOICE_ID || '');
+  const avatarId = process.env.NEXT_PUBLIC_AVATAR_ID || 'ba7401f5391344f3a1769ad024c7205d';
+  const voiceId = process.env.NEXT_PUBLIC_VOICE_ID || '84d29094d8c8472885624bd30c06459e';
   
   const mediaStream = useRef<HTMLVideoElement>(null);
   const avatar = useRef<StreamingAvatar | null>(null);
@@ -153,23 +153,6 @@ export default function AvatarComponent() {
 
   return (
     <div className="w-full flex flex-col gap-4">
-      <div className="flex flex-col gap-2">
-        <input
-          type="text"
-          placeholder="Avatar ID"
-          value={avatarId}
-          onChange={(e) => setAvatarId(e.target.value)}
-          className="border rounded px-4 py-2"
-        />
-        <input
-          type="text"
-          placeholder="Voice ID"
-          value={voiceId}
-          onChange={(e) => setVoiceId(e.target.value)}
-          className="border rounded px-4 py-2"
-        />
-      </div>
-
       <div className="flex gap-2">
         {!stream ? (
           <button
