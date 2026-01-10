@@ -174,15 +174,17 @@ export default function AvatarComponent() {
 
       {stream && (
         <div className="flex flex-col gap-4">
-          <div className="relative">
+          <div className="relative overflow-hidden rounded-lg">
             <video
               ref={mediaStream}
               autoPlay
               playsInline
-              className="w-full h-auto rounded-lg"
+              className="w-full h-auto"
             >
               <track kind="captions" />
             </video>
+            {/* Overlay to hide branding in bottom-right corner */}
+            <div className="absolute bottom-0 right-0 w-32 h-16 bg-gradient-to-tl from-gray-900/80 to-transparent pointer-events-none" />
             {isUserTalking && (
               <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded">
                 Speaking...
