@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'HeyGen Streaming Avatar Demo',
-  description: 'Interactive Avatar Demo using HeyGen Streaming Avatar SDK',
+  title: 'Interactive Avatar',
+  description: 'AI-powered interactive avatar experience',
 };
 
 export default function RootLayout({
