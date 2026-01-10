@@ -153,15 +153,15 @@ export default function AvatarComponent() {
 
   return (
     <div className="w-full flex flex-col gap-4">
-      <div className="flex gap-2">
+      <div className="flex gap-2 justify-center">
         {!stream ? (
-          <button
+          <img
+            src="https://i.postimg.cc/dtzVr981/IMG-6934.jpg"
+            alt="Start Session"
             onClick={startSession}
-            disabled={isLoadingSession}
-            className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-gray-400"
-          >
-            {isLoadingSession ? 'Loading...' : 'Start Session'}
-          </button>
+            className={`cursor-pointer ${isLoadingSession ? 'opacity-50 cursor-not-allowed' : ''}`}
+            style={{ width: '800px', height: '800px', objectFit: 'cover' }}
+          />
         ) : (
           <button
             onClick={endSession}
