@@ -161,27 +161,39 @@ export default function AvatarComponent() {
 
   return (
     <div className="w-full flex flex-col gap-4">
-      <div className="flex gap-2 justify-center">
+      <div className="flex flex-col items-center gap-4">
         {!stream ? (
-          <div className="relative">
-            <img
-              src="https://i.postimg.cc/dtzVr981/IMG-6934.jpg"
-              alt="Start Session"
-              onClick={startSession}
-              className={`w-[800px] h-[800px] object-cover cursor-pointer ${isLoadingSession ? 'opacity-50 cursor-not-allowed' : ''}`}
-            />
-            {isLoadingSession && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                <div className="text-white text-2xl font-bold">
-                  Starting Session...
+          <>
+            <div className="relative">
+              <img
+                src="https://i.postimg.cc/dtzVr981/IMG-6934.jpg"
+                alt="Avatar Placeholder"
+                className="w-[800px] h-[800px] object-cover"
+              />
+              {isLoadingSession && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                  <div className="text-white text-2xl font-bold">
+                    Starting Session...
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+            <button
+              onClick={startSession}
+              disabled={isLoadingSession}
+              className={`px-8 py-4 text-xl font-bold rounded-lg transition-colors ${
+                isLoadingSession
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white cursor-pointer'
+              }`}
+            >
+              {isLoadingSession ? 'Starting...' : 'Start Session'}
+            </button>
+          </>
         ) : (
           <button
             onClick={endSession}
-            className="bg-red-500 text-white px-4 py-2 rounded"
+            className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 text-xl font-bold rounded-lg"
           >
             End Session
           </button>
