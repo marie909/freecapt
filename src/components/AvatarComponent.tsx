@@ -180,12 +180,13 @@ export default function AvatarComponent() {
               autoPlay
               playsInline
               className="w-full h-auto"
-              style={{ objectFit: 'cover' }}
+              style={{ 
+                objectFit: 'cover',
+                clipPath: 'inset(0 0 15% 0)'
+              }}
             >
               <track kind="captions" />
             </video>
-            {/* Overlay to hide watermark in bottom-right corner */}
-            <div className="absolute bottom-0 right-0 w-80 h-40 bg-black pointer-events-none" />
             {isUserTalking && (
               <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded z-10">
                 Speaking...
